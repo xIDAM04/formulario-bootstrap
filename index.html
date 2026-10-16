@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedaleo Urbano | Inscripción al club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --tinta: #12263a;
+      --senal: #f2c230;
+      --petroleo: #1f7a8c;
+      --niebla: #eef3f6;
+    }
+    body {
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      background: var(--niebla);
+      color: var(--tinta);
+    }
+    h1, h2, .navbar-brand { font-family: "Bricolage Grotesque", sans-serif; }
+
+    /* Encabezado */
+    .site-header { background: var(--tinta); }
+    .navbar-brand { color: var(--senal) !important; font-weight: 800; letter-spacing: .5px; }
+    .navbar .nav-link { color: #dbe6ee; }
+    .navbar .nav-link:hover { color: var(--senal); }
+
+    /* Portada */
+    .hero { background: var(--tinta); color: #fff; padding: 3rem 0 6rem; }
+    .hero h1 { font-weight: 800; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.05; max-width: 16ch; }
+    .hero p { color: #b9c9d6; max-width: 46ch; font-size: 1.1rem; }
+
+    /* Tarjeta del formulario */
+    .form-card {
+      margin-top: -4rem;
+      background: #fff;
+      border: 0;
+      border-top: 6px solid var(--senal);
+      border-radius: .5rem;
+      box-shadow: 0 12px 30px rgba(18, 38, 58, .15);
+    }
+    .form-card h2 { font-weight: 800; font-size: 1.5rem; }
+    .form-label { font-weight: 600; }
+    .form-control:focus, .form-select:focus, .form-check-input:focus {
+      border-color: var(--petroleo);
+      box-shadow: 0 0 0 .25rem rgba(31, 122, 140, .25);
+    }
+    .form-check-input:checked { background-color: var(--petroleo); border-color: var(--petroleo); }
+    .btn-enviar {
+      background: var(--senal);
+      color: var(--tinta);
+      font-weight: 600;
+      border: 0;
+      padding: .75rem 2rem;
+    }
+    .btn-enviar:hover { background: #dcae1f; color: var(--tinta); }
+    .btn-limpiar { color: var(--petroleo); font-weight: 600; }
+
+    /* Pie de página */
+    .site-footer { background: var(--tinta); color: #b9c9d6; }
+    .site-footer a { color: var(--senal); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-sm">
+      <div class="container">
+        <a class="navbar-brand" href="#">Pedaleo Urbano</a>
+        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
+                data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#inscripcion">Inscripción</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CUERPO -->
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Rueda con nosotros por la ciudad</h1>
+        <p>Salidas grupales cada semana, rutas para todos los niveles y una comunidad que te espera. Completa el formulario y únete al club.</p>
+      </div>
+    </section>
+
+    <section class="container pb-5" id="inscripcion">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+          <div class="card form-card">
+            <div class="card-body p-4 p-md-5">
+              <h2 class="mb-4">Inscripción al club</h2>
+
+              <form id="formulario" class="needs-validation" novalidate>
+                <div class="row g-3">
+
+                  <!-- Texto -->
+                  <div class="col-12 col-md-6">
+                    <label for="nombre" class="form-label">Nombre completo</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre"
+                           required minlength="3" placeholder="Ej: Ana Gómez">
+                    <div class="invalid-feedback">Escribe tu nombre (mínimo 3 letras).</div>
+                  </div>
+
+                  <!-- Email -->
+                  <div class="col-12 col-md-6">
+                    <label for="correo" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="correo" name="correo"
+                           required placeholder="nombre@correo.com">
+                    <div class="invalid-feedback">Ingresa un correo válido.</div>
+                  </div>
+
+                  <!-- Teléfono con pattern -->
+                  <div class="col-12 col-md-6">
+                    <label for="telefono" class="form-label">Celular</label>
+                    <input type="tel" class="form-control" id="telefono" name="telefono"
+                           required pattern="3[0-9]{9}" placeholder="3001234567">
+                    <div class="invalid-feedback">Debe tener 10 dígitos y empezar por 3.</div>
+                  </div>
+
+                  <!-- Fecha -->
+                  <div class="col-12 col-md-6">
+                    <label for="nacimiento" class="form-label">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" id="nacimiento" name="nacimiento" required>
+                    <div class="invalid-feedback">Selecciona tu fecha de nacimiento.</div>
+                  </div>
+
+                  <!-- Select -->
+                  <div class="col-12 col-md-6">
+                    <label for="nivel" class="form-label">Nivel de experiencia</label>
+                    <select class="form-select" id="nivel" name="nivel" required>
+                      <option value="" selected disabled>Elige una opción</option>
+                      <option>Principiante</option>
+                      <option>Intermedio</option>
+                      <option>Avanzado</option>
+                    </select>
+                    <div class="invalid-feedback">Selecciona tu nivel.</div>
+                  </div>
+
+                  <!-- Radio -->
+                  <div class="col-12 col-md-6">
+                    <span class="form-label d-block">Tipo de bicicleta</span>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="bici" id="biciRuta" value="ruta" required>
+                      <label class="form-check-label" for="biciRuta">Ruta</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="bici" id="biciMonta" value="montaña">
+                      <label class="form-check-label" for="biciMonta">Montaña</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="bici" id="biciUrbana" value="urbana">
+                      <label class="form-check-label" for="biciUrbana">Urbana</label>
+                    </div>
+                  </div>
+
+                  <!-- Checkbox -->
+                  <div class="col-12">
+                    <span class="form-label d-block">Días en los que puedes salir</span>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="diaMar" name="dias" value="martes">
+                      <label class="form-check-label" for="diaMar">Martes (noche)</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="diaSab" name="dias" value="sábado">
+                      <label class="form-check-label" for="diaSab">Sábado</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="diaDom" name="dias" value="domingo">
+                      <label class="form-check-label" for="diaDom">Domingo</label>
+                    </div>
+                  </div>
+
+                  <!-- Textarea -->
+                  <div class="col-12">
+                    <label for="mensaje" class="form-label">¿Por qué quieres unirte?</label>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="3"
+                              required minlength="10" maxlength="300"
+                              placeholder="Cuéntanos en pocas palabras"></textarea>
+                    <div class="invalid-feedback">Escribe al menos 10 caracteres.</div>
+                  </div>
+
+                  <!-- Términos -->
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="terminos" required>
+                      <label class="form-check-label" for="terminos">
+                        Acepto las normas de seguridad del club
+                      </label>
+                      <div class="invalid-feedback">Debes aceptar las normas para continuar.</div>
+                    </div>
+                  </div>
+
+                  <!-- Botones -->
+                  <div class="col-12 d-flex flex-column flex-sm-row gap-2 align-items-sm-center mt-4">
+                    <button type="submit" class="btn btn-enviar">Enviar inscripción</button>
+                    <button type="reset" class="btn btn-link btn-limpiar" id="limpiar">Borrar formulario</button>
+                  </div>
+                </div>
+              </form>
+
+              <div id="exito" class="alert alert-success mt-4 d-none" role="alert">
+                ¡Listo! Recibimos tu inscripción. Te escribiremos pronto.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="site-footer py-4" id="contacto">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>&copy; 2026 Pedaleo Urbano. Proyecto académico.</span>
+      <span>Escríbenos: <a href="mailto:club@pedaleourbano.com">club@pedaleourbano.com</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Validación visual de Bootstrap
+    const form = document.getElementById('formulario');
+    const exito = document.getElementById('exito');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      exito.classList.add('d-none');
+      if (!form.checkValidity()) {
+        e.stopPropagation();
+        form.classList.add('was-validated');
+        return;
+      }
+      form.classList.remove('was-validated');
+      form.reset();
+      exito.classList.remove('d-none');
+    });
+
+    form.addEventListener('reset', () => {
+      form.classList.remove('was-validated');
+      exito.classList.add('d-none');
+    });
+  </script>
+</body>
+</html>
